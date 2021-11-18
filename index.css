@@ -1,0 +1,34 @@
+.topText {
+	width:  100%;
+	height: 100%;
+	margin: 0;
+	border: 0;
+	overflow: hidden;
+	display: block;
+	text-align: center;
+}
+html {
+	background-color: #FFE4C4;
+	font-family:Open Sans,Arial;
+}
+p {
+	line-height: 1.5;
+}
+a {
+	color:#111;
+}
+.assignment {
+	border-radius: 1em;
+	width: 300px;
+	border: 15px solid DarkCyan;
+	padding: 50px;
+	margin: 20px;
+	background: #B0C4DE;
+}
+.assignments {
+	display: flex;
+	flex-wrap:wrap;
+}
+.assignment img {
+	width:20em;
+}
