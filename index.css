@@ -27,7 +27,7 @@ a {
 }
 .assignments {
 	display: flex;
-	flex-wrap:wrap;
+	flex-wrap: wrap;
 }
 .assignment img {
 	width:20em;
