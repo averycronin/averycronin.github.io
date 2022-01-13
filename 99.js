@@ -20,6 +20,26 @@ if (window.innerHeight * 2 > window.innerWidth) {
 ctx.fillStyle = '#EEEEEE';
 ctx.fillRect(0, 0, arr_x, arr_y);
 
+initialize();
+
+function initialize() {
+	window.addEventListener('resize', resizeCanvas, false);
+	resizeCanvas();
+}
+
+function resizeCanvas() {
+	if (window.innerHeight * 2 > window.innerWidth) {
+		arr_x = window.innerWidth;
+		arr_y = window.innerWidth / 2;
+	} else {
+		arr_x = window.innerHeight * 2;
+		arr_y = window.innerHeight;
+	}
+	
+	ctx.fillStyle = '#EEEEEE';
+	ctx.fillRect(0, 0, arr_x, arr_y);
+}
+
 let body;
 
 document.addEventListener('keydown', event => {
