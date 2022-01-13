@@ -34,6 +34,9 @@ function resizeCanvas() {
 		arr_x = window.innerHeight * 2;
 		arr_y = window.innerHeight;
 	}
+
+	canvas.width = arr_x;
+	canvas.height = arr_y;
 	
 	ctx.fillStyle = '#EEEEEE';
 	ctx.fillRect(0, 0, arr_x, arr_y);
