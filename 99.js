@@ -43,7 +43,9 @@ arr_y = tile * 8
 	ctx.fillRect(0, 0, arr_x, arr_y);
 }
 
-let body;
+let body, treat;
+
+
 
 document.addEventListener('keydown', event => {
 	const charList = 'adesw';
