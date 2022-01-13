@@ -66,3 +66,11 @@ document.addEventListener('keydown', event => {
 		return;
 	}
 });
+
+function x () {
+	return Math.floor(Math.random() * 16);
+}
+
+function y () {
+	return Math.floor(Math.random() * 8);
+}
