@@ -28,12 +28,13 @@ function initialize() {
 
 function resizeCanvas() {
 	if (window.innerHeight * 2 > window.innerWidth) {
-		arr_x = window.innerWidth;
-		arr_y = window.innerWidth / 2;
+ 	 tile = Math.floor(window.innerWidth / 16);
 	} else {
-		arr_x = window.innerHeight * 2;
-		arr_y = window.innerHeight;
+	  tile = Math.floor(window.innerHeight / 8);
 	}
+
+arr_x = tile * 16
+arr_y = tile * 8
 
 	canvas.width = arr_x;
 	canvas.height = arr_y;
