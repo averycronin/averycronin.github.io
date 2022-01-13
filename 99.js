@@ -8,14 +8,13 @@ const ctx = canvas.getContext('2d');
 let arr_x, arr_y, tile;
 
 if (window.innerHeight * 2 > window.innerWidth) {
-  arr_x = window.innerWidth;
-  arr_y = window.innerWidth / 2;
+  tile = Math.floor(window.innerWidth / 16);
 } else {
-  arr_x = window.innerHeight * 2;
-  arr_y = window.innerHeight;
+  tile = Math.floor(window.innerHeight / 8);
 }
 
-
+arr_x = tile * 16
+arr_y = tile * 8
 
 ctx.fillStyle = '#EEEEEE';
 ctx.fillRect(0, 0, arr_x, arr_y);
