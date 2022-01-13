@@ -94,6 +94,10 @@ function placeTreat () {
 	arr[treat_x][treat_y] = 2;
 } 
 
-let x = () => Math.floor(Math.random() * 16);
+function x () {
+	Math.floor(Math.random() * 16);
+}
 
-let y = () => Math.floor(Math.random() * 8);
+function y () {
+Math.floor(Math.random() * 8);
+}
