@@ -74,13 +74,8 @@ function draw () {
 document.addEventListener('keydown', event => {
 	const charList = 'adesw';
 	// movement keys only
-	ctx.fillStyle = '#eee';
-	if (arr[body_x][body_y] === 3) {
-		ctx.fillStyle = 'red';
-		score++;
-	}
-	ctx.fillRect(body_x*tile,body_y*tile,tile,tile);
-	//arr[body_x][body_y] = 0;
+	let x = body_x;
+	let y = body_y;
 	const key = event.key.toLowerCase();
 	if (!(charList.includes(key)) && (key !== 'arrowup') && (key !== 'arrowdown') && (key !== 'arrowright') && (key !== 'arrowleft')) { return; }
 
@@ -109,27 +104,38 @@ document.addEventListener('keydown', event => {
 			body_y++;
 		}
 	} else if (key === 'e') {
-		alert('Current points: ' + score  + '\n Destroyable red boxes: ' + score%10-destroyed_reds);
+		alert('Current points: ' + score  + '\n Destroyable red boxes: ' + (Math.floor(score/10-destroyed_reds)));
 		return;
 	}
-
+	premove(x,y);
 	movePlayer();
 });
 
+function premove(x, y) {
+	ctx.fillStyle = '#eee';
+	if (arr[x][y] === 3) {
+		arr[x][y] = -1;
+		ctx.fillStyle = 'red';
+		score++;
+	} else {
+		arr[x][y] = 0;
+	}
+	ctx.fillRect(x*tile,y*tile,tile,tile);
+}
+
 function movePlayer() {
 	arr[body_x][body_y]++;
+	ctx.fillStyle = 'black';
+	ctx.fillRect(body_x*tile,body_y*tile,tile,tile);
 	if (arr[body_x][body_y] === 0) {
 		red();
 	} else if (arr[body_x][body_y] === 3) {
-		arr[body_x][body_y] = -1;
 		placeTreat();
 	}
-	ctx.fillStyle = 'black';
-	ctx.fillRect(body_x*tile,body_y*tile,tile,tile);
 }
 
 function red() {
-	if (score%10 - destroyed_reds) {
+	if (Math.floor(score/10) - destroyed_reds <= 0) {
 		end();
 	} else {
 		destroyed_reds++;
@@ -142,6 +148,8 @@ function placeTreat () {
 		treat_y = y();
 	} while (arr[treat_x][treat_y] !== 0);
 	arr[treat_x][treat_y] = 2;
+	ctx.fillStyle = 'purple';
+	ctx.fillRect(treat_x*tile,treat_y*tile,tile,tile);
 } 
 
 function end() {
