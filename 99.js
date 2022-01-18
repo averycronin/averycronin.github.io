@@ -80,7 +80,7 @@ document.addEventListener('keydown', event => {
 		score++;
 	}
 	ctx.fillRect(body_x*tile,body_y*tile,tile,tile);
-	arr[body_x][body_y] = 0;
+	//arr[body_x][body_y] = 0;
 	const key = event.key.toLowerCase();
 	if (!(charList.includes(key)) && (key !== 'arrowup') && (key !== 'arrowdown') && (key !== 'arrowright') && (key !== 'arrowleft')) { return; }
 
@@ -121,6 +121,7 @@ function movePlayer() {
 	if (arr[body_x][body_y] === 0) {
 		red();
 	} else if (arr[body_x][body_y] === 3) {
+		arr[body_x][body_y] = -1;
 		placeTreat();
 	}
 	ctx.fillStyle = 'black';
