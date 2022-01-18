@@ -96,9 +96,9 @@ function placeTreat () {
 } 
 
 function x () {
-	Math.floor(Math.random() * 16);
+	return Math.floor(Math.random() * 16);
 }
 
 function y () {
-	Math.floor(Math.random() * 8);
+	return Math.floor(Math.random() * 8);
 }
