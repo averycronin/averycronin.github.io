@@ -53,13 +53,13 @@ function resizeCanvas() {
 function draw () {
 	ctx.fillStyle = '#EEEEEE';
 	ctx.fillRect(0, 0, arr_x, arr_y);
-	ctx.fillStyle = black;
+	ctx.fillStyle = 'black';
 	ctx.fillRect(body_x, body_y, tile, tile);
-	ctx.fillStyle = purple;
+	ctx.fillStyle = 'purple';
 	ctx.fillRect(treat_x, treat_y, tile, tile);
-	ctx.fillStyle = red;
-	for (let i = 0; i < 8; i++) {
-		for (let j = 0; j < 16; j++) {
+	ctx.fillStyle = 'red';
+	for (let i = 0; i < 16; i++) {
+		for (let j = 0; j < 8; j++) {
 			if (arr[i][j] === -1) {
 				ctx.fillRect(i,j,tile,tile);
 			}
