@@ -54,9 +54,9 @@ function draw () {
 	ctx.fillStyle = '#EEEEEE';
 	ctx.fillRect(0, 0, arr_x, arr_y);
 	ctx.fillStyle = 'black';
-	ctx.fillRect(body_x, body_y, tile, tile);
+	ctx.fillRect(body_x*16, body_y*8, tile, tile);
 	ctx.fillStyle = 'purple';
-	ctx.fillRect(treat_x, treat_y, tile, tile);
+	ctx.fillRect(treat_x*16, treat_y*8, tile, tile);
 	ctx.fillStyle = 'red';
 	for (let i = 0; i < 16; i++) {
 		for (let j = 0; j < 8; j++) {
