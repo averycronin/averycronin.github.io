@@ -85,30 +85,30 @@ document.addEventListener('keydown', event => {
 
 	if (key === 'arrowleft' || key === 'a') {
 		if (body_x === 0) {
-			body_x = width;
+			body_x = width-1;
 		} else {
 			body_x--;
 		}
 	} else if (key === 'arrowup' || key === 'w') {
-		if (body_x === 0) {
-			body_x = height;
+		if (body_y === 0) {
+			body_y = height-1;
 		} else {
-			body_x--;
+			body_y--;
 		}
 	} else if (key === 'arrowright' || key === 'd') {
-		if (body_x === width) {
+		if (body_x === width-1) {
 			body_x = 0;
 		} else {
 			body_x++;
 		}
 	} else if (key === 'arrowdown' || key === 's') {
-		if (body_y === height) {
+		if (body_y === height-1) {
 			body_y = 0;
 		} else {
 			body_y++;
 		}
 	} else if (key === 'e') {
-		alert('Current points: ' /*+ /* fix me  + '\n Destroyable red boxes: ' + /* error here */);
+		alert('Current points: ' + score  + '\n Destroyable red boxes: ' + score%10-destroyed_reds);
 		return;
 	}
 	//TEMP PALCEMENT
