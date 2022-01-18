@@ -26,7 +26,6 @@ let score, destroyed_reds;
 
 body_x = x();
 body_y = y();
-console.log(body_x + ' ' + body_y);
 arr[body_x][body_y] = 1;
 placeTreat();
 
@@ -112,6 +111,9 @@ document.addEventListener('keydown', event => {
 		alert('Current points: ' /*+ /* fix me  + '\n Destroyable red boxes: ' + /* error here */);
 		return;
 	}
+	//TEMP PALCEMENT
+	ctx.fillStyle = 'black';
+	ctx.fillRect(body_x*tile,body_y*tile,tile,tile);
 });
 
 function placeTreat () {
