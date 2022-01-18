@@ -2,8 +2,8 @@
 
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
-const height = height;
-const width = width;
+const height = 8;
+const width = 16;
 
 let arr = Array.from({length: width}, () => Array.from({length: height}, () => 0));
 
