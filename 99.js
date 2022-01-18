@@ -23,6 +23,7 @@ let body_x, body_y, treat_x, treat_y;
 
 body_x = x();
 body_y = y();
+console.log(body_x + ' ' + body_y);
 arr[body_x][body_y] = 1;
 placeTreat();
 
