@@ -80,6 +80,7 @@ document.addEventListener('keydown', event => {
 		score++;
 	}
 	ctx.fillRect(body_x*tile,body_y*tile,tile,tile);
+	arr[body_x][body_y] = 0;
 	const key = event.key.toLowerCase();
 	if (!(charList.includes(key)) && (key !== 'arrowup') && (key !== 'arrowdown') && (key !== 'arrowright') && (key !== 'arrowleft')) { return; }
 
@@ -119,6 +120,8 @@ function movePlayer() {
 	arr[body_x][body_y]++;
 	if (arr[body_x][body_y] === 0) {
 		red();
+	} else if (arr[body_x][body_y] === 3) {
+		placeTreat();
 	}
 	ctx.fillStyle = 'black';
 	ctx.fillRect(body_x*tile,body_y*tile,tile,tile);
