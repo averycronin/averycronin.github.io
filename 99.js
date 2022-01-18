@@ -57,10 +57,10 @@ function draw () {
 	ctx.fillStyle = purple;
 	ctx.fillRect(treat_x, treat_y, tile, tile);
 	ctx.fillStyle = red;
-	for (let i = 0; i < 16; i++) {
+	for (let i = 0; i < 8; i++) {
 		for (let j = 0; j < 16; j++) {
 			if (arr[i][j] === -1) {
-				ctx.fillRect(x,y,tile,tile);
+				ctx.fillRect(i,j,tile,tile);
 			}
 		}
 	}
@@ -99,5 +99,5 @@ function x () {
 }
 
 function y () {
-Math.floor(Math.random() * 8);
+	Math.floor(Math.random() * 8);
 }
