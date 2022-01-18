@@ -1,11 +1,11 @@
 'use strict';
 
-let arr = Array.from({length: width}, () => Array.from({length: height}, () => 0));
-
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 const height = height;
 const width = width;
+
+let arr = Array.from({length: width}, () => Array.from({length: height}, () => 0));
 
 let arr_x, arr_y, tile;
 
@@ -22,6 +22,7 @@ ctx.fillStyle = '#EEEEEE';
 ctx.fillRect(0, 0, arr_x, arr_y);
 
 let body_x, body_y, treat_x, treat_y;
+let score, destroyed_reds;
 
 body_x = x();
 body_y = y();
@@ -34,6 +35,8 @@ initialize();
 function initialize() {
 	window.addEventListener('resize', resizeCanvas, false);
 	resizeCanvas();
+	score = 0;
+	destroyed_reds = 0;
 }
 
 function resizeCanvas() {
@@ -73,8 +76,9 @@ document.addEventListener('keydown', event => {
 	const charList = 'adesw';
 	// movement keys only
 	ctx.fillStyle = '#eee';
-	if (arr[body_x][body_y] === 2) {
+	if (arr[body_x][body_y] === 3) {
 		ctx.fillStyle = 'red';
+		score++;
 	}
 	ctx.fillRect(body_x*tile,body_y*tile,tile,tile);
 	const key = event.key.toLowerCase();
