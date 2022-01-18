@@ -111,10 +111,26 @@ document.addEventListener('keydown', event => {
 		alert('Current points: ' + score  + '\n Destroyable red boxes: ' + score%10-destroyed_reds);
 		return;
 	}
-	//TEMP PALCEMENT
+
+	movePlayer();
+});
+
+function movePlayer() {
+	arr[body_x][body_y]++;
+	if (arr[body_x][body_y] === 0) {
+		red();
+	}
 	ctx.fillStyle = 'black';
 	ctx.fillRect(body_x*tile,body_y*tile,tile,tile);
-});
+}
+
+function red() {
+	if (score%10 - destroyed_reds) {
+		end();
+	} else {
+		destroyed_reds++;
+	}
+}
 
 function placeTreat () {
 	do {
@@ -123,6 +139,17 @@ function placeTreat () {
 	} while (arr[treat_x][treat_y] !== 0);
 	arr[treat_x][treat_y] = 2;
 } 
+
+function end() {
+	alert('You lost!\nYour score was ' + score + '.');
+	arr = arr.map(a => a.map(() => 0))
+	score = 0;
+	destroyed_reds = 0;
+	body_x = x();
+	body_y = y();
+	placeTreat();
+	draw();
+}
 
 function x () {
 	return Math.floor(Math.random() * width);
