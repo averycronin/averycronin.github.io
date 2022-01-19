@@ -5,6 +5,11 @@ const ctx = canvas.getContext('2d');
 const height = 8;
 const width = 16;
 
+let treat_color = 'purple';
+let body_color = 'black';
+let danger_color = 'red';
+let background_color = '#eee';
+
 let arr = Array.from({length: width}, () => Array.from({length: height}, () => 0));
 
 let arr_x, arr_y, tile;
@@ -18,7 +23,7 @@ if (window.innerHeight * 2 > window.innerWidth) {
 arr_x = tile * width;
 arr_y = tile * height;
 
-ctx.fillStyle = '#EEEEEE';
+ctx.fillStyle = background_color;
 ctx.fillRect(0, 0, arr_x, arr_y);
 
 let body_x, body_y, treat_x, treat_y;
@@ -54,13 +59,13 @@ function resizeCanvas() {
 }
 
 function draw () {
-	ctx.fillStyle = '#eee';
+	ctx.fillStyle = background_color;
 	ctx.fillRect(0, 0, arr_x, arr_y);
-	ctx.fillStyle = 'black';
+	ctx.fillStyle = body_color;
 	ctx.fillRect(body_x*tile, body_y*tile, tile, tile);
-	ctx.fillStyle = 'purple';
+	ctx.fillStyle = treat_color;
 	ctx.fillRect(treat_x*tile, treat_y*tile, tile, tile);
-	ctx.fillStyle = 'red';
+	ctx.fillStyle = danger_color;
 	for (let i = 0; i < width; i++) {
 		for (let j = 0; j < height; j++) {
 			if (arr[i][j] === -1) {
@@ -70,8 +75,16 @@ function draw () {
 	}
 }
 
-canvas.addEventListener('click', click => {
-	console.log('click, nerd');
+canvas.addEventListener('click', (e) => {
+
+	//TODO fix the offset from the page vs the canvas and you've got the color done 
+	//Also, might want to make helper functions for rgb to hex and vice versa
+
+	console.log(e.x);
+	console.log(e.y);
+    var x = e.x;
+    var y = e.y;
+	console.log(canvas.getContext('2d').getImageData(x, y, 1, 1).data);
 });
 
 document.addEventListener('keydown', event => {
@@ -115,10 +128,10 @@ document.addEventListener('keydown', event => {
 });
 
 function premove(x, y) {
-	ctx.fillStyle = '#eee';
+	ctx.fillStyle = background_color;
 	if (arr[x][y] === 3) {
 		arr[x][y] = -1;
-		ctx.fillStyle = 'red';
+		ctx.fillStyle = danger_color;
 		score++;
 	} else {
 		arr[x][y] = 0;
@@ -128,7 +141,7 @@ function premove(x, y) {
 
 function movePlayer() {
 	arr[body_x][body_y]++;
-	ctx.fillStyle = 'black';
+	ctx.fillStyle = body_color;
 	ctx.fillRect(body_x*tile,body_y*tile,tile,tile);
 	if (arr[body_x][body_y] === 0) {
 		red();
@@ -151,7 +164,7 @@ function placeTreat () {
 		treat_y = y();
 	} while (arr[treat_x][treat_y] !== 0);
 	arr[treat_x][treat_y] = 2;
-	ctx.fillStyle = 'purple';
+	ctx.fillStyle = treat_color;
 	ctx.fillRect(treat_x*tile,treat_y*tile,tile,tile);
 } 
 
