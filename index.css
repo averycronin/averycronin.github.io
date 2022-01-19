@@ -13,11 +13,12 @@
 	width: 100%;
 	top: 0;
 	background-color: #bbb;
+	font-family:Open Sans,Arial;
 }
 .navbar a {
   float: left;
   display: block;
-  color: #f2f2f2;
+  color: #333;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
