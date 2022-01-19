@@ -47,7 +47,6 @@ function resizeCanvas() {
 
 	arr_x = tile * width
 	arr_y = tile * height
-
 	canvas.width = arr_x;
 	canvas.height = arr_y;
 	
