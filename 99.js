@@ -70,9 +70,9 @@ function draw () {
 	}
 }
 
-function click() {
-	console.log('click...')
-}
+canvas.addEventListener('click', click => {
+	console.log('click, nerd');
+});
 
 document.addEventListener('keydown', event => {
 	const charList = 'adesw';
