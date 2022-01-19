@@ -70,6 +70,10 @@ function draw () {
 	}
 }
 
+function click() {
+	console.log('click...')
+}
+
 document.addEventListener('keydown', event => {
 	const charList = 'adesw';
 	// movement keys only
