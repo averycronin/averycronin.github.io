@@ -27,27 +27,7 @@
   color: black;
 }
 html {
-	background-color: #d3d3d3;
+	background-color: #eee;
 	font-family:Open Sans,Arial;
-}
-p {
-	line-height: 1.5;
-}
-a {
-	color:#111;
-}
-.assignment {
-	border-radius: 1em;
-	width: 300px;
-	border: 15px solid DarkCyan;
-	padding: 50px;
-	margin: 20px;
-	background: #B0C4DE;
-}
-.assignments {
-	display: flex;
-	flex-wrap: wrap;
-}
-.assignment img {
-	width: 20em;
+	margin-top: 30px;
 }
