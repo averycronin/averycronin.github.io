@@ -102,6 +102,7 @@ document.addEventListener('keydown', event => {
 			body_x--;
 		}
 	} else if (key === 'arrowup' || key === 'w') {
+		event.preventDefault();
 		if (body_y === 0) {
 			body_y = height-1;
 		} else {
@@ -114,6 +115,7 @@ document.addEventListener('keydown', event => {
 			body_x++;
 		}
 	} else if (key === 'arrowdown' || key === 's') {
+		event.preventDefault();
 		if (body_y === height-1) {
 			body_y = 0;
 		} else {
