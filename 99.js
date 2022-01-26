@@ -21,7 +21,7 @@ if (window.innerHeight * 2 > window.innerWidth) {
 }
 
 arr_x = tile * width;
-arr_y = tile * height;
+arr_y = tile * height;	
 
 ctx.fillStyle = background_color;
 ctx.fillRect(0, 0, arr_x, arr_y);
@@ -45,9 +45,9 @@ function initialize() {
 
 function resizeCanvas() {
 	if (window.innerHeight * 2 > window.innerWidth) {
- 	 tile = Math.floor(window.innerWidth / width);
+ 		tile = Math.floor(window.innerWidth / width);
 	} else {
-	  tile = Math.floor(window.innerHeight / height);
+		tile = Math.floor(window.innerHeight / height);
 	}
 
 	arr_x = tile * width
@@ -69,7 +69,7 @@ function draw () {
 	for (let i = 0; i < width; i++) {
 		for (let j = 0; j < height; j++) {
 			if (arr[i][j] === -1) {
-				ctx.fillRect(i,j,tile,tile);
+				ctx.fillRect(i*tile,j*tile,tile,tile);
 			}
 		}
 	}

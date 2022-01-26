@@ -10,7 +10,7 @@ html, body {
 }
 .image {
 	margin: 0;
-	margin-top: 50px;
+	margin-top: 55px;
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -36,6 +36,9 @@ html, body {
 .navbar a:hover {
 	background: #ddd;
 	color: black;
+}
+.navbar_r {
+	float: right;
 }
 ul {
 	list-style-type: none;
