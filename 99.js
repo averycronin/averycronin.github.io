@@ -5,13 +5,10 @@ const ctx = canvas.getContext('2d');
 const height = 8;
 const width = 16;
 
-//changeable by the user
 let treat_color = 'purple';
 let body_color = 'black';
 let danger_color = 'red';
 let background_color = '#eee';
-// \/ short for treats for each red that can be consumed
-let treats_per = 10;
 
 let arr = Array.from({length: width}, () => Array.from({length: height}, () => 0));
 
@@ -83,11 +80,14 @@ canvas.addEventListener('click', (e) => {
 	//TODO fix the offset from the page vs the canvas and you've got the color done 
 	//Also, might want to make helper functions for rgb to hex and vice versa
 
+    let x_offset = window.innerWidth - arr_x;
+    x_offset /= 2;
+
 	console.log(e.x);
 	console.log(e.y);
     var x = e.x;
     var y = e.y;
-	console.log(canvas.getContext('2d').getImageData(x, y, 1, 1).data);
+	console.log(canvas.getContext('2d').getImageData(x-x_offset, y, 1, 1).data);
 });
 
 document.addEventListener('keydown', event => {
@@ -125,8 +125,7 @@ document.addEventListener('keydown', event => {
 			body_y++;
 		}
 	} else if (key === 'e') {
-		alert('Current points: ' + score  + '\n Destroyable red boxes: ' + 
-			(Math.floor(score/treats_per-destroyed_reds)));
+		alert('Current points: ' + score  + '\n Destroyable red boxes: ' + (Math.floor(score/10-destroyed_reds)));
 		return;
 	}
 	premove(x,y);
@@ -157,7 +156,7 @@ function movePlayer() {
 }
 
 function red() {
-	if (Math.floor(score/treats_per) - destroyed_reds <= 0) {
+	if (Math.floor(score/10) - destroyed_reds <= 0) {
 		end();
 	} else {
 		destroyed_reds++;
