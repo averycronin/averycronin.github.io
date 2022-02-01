@@ -157,8 +157,7 @@ function movePlayer() {
 }
 
 function red() {
-	//this is broken
-	if ((Math.floor(score-per_break) - destroyed_reds) <= 0) {
+	if ((Math.floor(score/per_break) - destroyed_reds) <= 0) {
 		end();
 	} else {
 		destroyed_reds++;
