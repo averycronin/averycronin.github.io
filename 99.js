@@ -27,7 +27,7 @@ ctx.fillStyle = background_color;
 ctx.fillRect(0, 0, arr_x, arr_y);
 
 let body_x, body_y, treat_x, treat_y;
-let score, destroyed_reds;
+let score, destroyed_reds, per_break;
 
 body_x = x();
 body_y = y();
@@ -41,6 +41,7 @@ function initialize() {
 	resizeCanvas();
 	score = 0;
 	destroyed_reds = 0;
+	per_break = 8;
 }
 
 function resizeCanvas() {
@@ -122,7 +123,7 @@ document.addEventListener('keydown', event => {
 			body_y++;
 		}
 	} else if (key === 'e') {
-		alert('Current points: ' + score  + '\n Destroyable red boxes: ' + (Math.floor(score/10-destroyed_reds)));
+		alert('Current points: ' + score  + '\n Destroyable red boxes: ' + (Math.floor(score/per_break-destroyed_reds)));
 		return;
 	}
 	premove(x,y);
@@ -153,7 +154,7 @@ function movePlayer() {
 }
 
 function red() {
-	if (Math.floor(score/10) - destroyed_reds <= 0) {
+	if (Math.floor(score-per_break) - destroyed_reds <= 0) {
 		end();
 	} else {
 		destroyed_reds++;
