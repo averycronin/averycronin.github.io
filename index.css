@@ -22,6 +22,9 @@ img {
 	padding-top: 2em;
 	flex-wrap: wrap;
 }
+p {
+	font-size: 14pt;
+}
 .topImage {
 	margin-top: -5em;
 	width: 400px;
