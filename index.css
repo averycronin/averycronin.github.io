@@ -7,14 +7,28 @@ html {
 	background-color: #eee;
 	margin-top: 30px;
 }
-.topText {
-	width:  100%;
+img {
 	height: 100%;
+	width: 100%;
+	object-fit: contain;
+	
+}
+.topText {
 	margin-top: 30px;
 	border: 0;
 	overflow: hidden;
-	display: block;
-	text-align: center;
+	text-align: left;
+	padding-left: 8em;
+	padding-top: 2em;
+	flex-wrap: wrap;
+}
+.topImage {
+	margin-top: -5em;
+	width: 400px;
+	height: 200px;
+	float: right;
+	padding-right: 4em;
+	flex-wrap: wrap;
 }
 .navbar {
 	position: fixed;
