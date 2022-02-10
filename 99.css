@@ -8,7 +8,25 @@ html, body {
 	display: block;
 	background-color: #DDDDDD;
 }
-.image {
+img {
+	height: 100%;
+	width: 100%;
+	object-fit: contain;
+}
+.instructions {
+	height: 10px;
+	width: 10px;
+	margin: 0;
+	margin-top: 55px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	overflow: auto;
+	z-index: -1;
+}
+.canvas {
 	margin: 0;
 	margin-top: 55px;
 	position: absolute;
