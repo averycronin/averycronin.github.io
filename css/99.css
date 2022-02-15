@@ -1,3 +1,7 @@
+button {
+	all: unset;
+	cursor: pointer;
+}
 html, body {
 	width:  100%;
 	height: 100%;
@@ -14,8 +18,8 @@ img {
 	object-fit: contain;
 }
 .instructions {
-	height: 10px;
-	width: 10px;
+	width: 40%;
+	height: auto;
 	margin: 0;
 	margin-top: 55px;
 	position: absolute;
@@ -24,7 +28,6 @@ img {
 	-ms-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
 	overflow: auto;
-	z-index: -1;
 }
 .canvas {
 	margin: 0;
@@ -35,6 +38,7 @@ img {
 	-ms-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
 	overflow: auto;
+	display: inline;
 }
 .navbar {
 	position: absolute;
@@ -43,23 +47,30 @@ img {
 	background-color: #bbb;
 	font-family:Open Sans,Arial;
 }
-.navbar a {
+.navbar a, .navbar button {
 	float: left;
 	display: block;
 	color: #333;
 	text-align: center;
 	padding: 14px 16px;
 	text-decoration: none;
+	white-space: nowrap;
 }
-.navbar a:hover {
+
+.navbar a:hover, .navbar button:hover {
 	background: #ddd;
 	color: black;
 }
 .navbar_r {
+	white-space: nowrap;
+	display: block;
+}
+span {
 	float: right;
 }
 ul {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
+	display:inline;
 }

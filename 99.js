@@ -3,7 +3,7 @@
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 const instructions = document.getElementsByClassName('instructions');
-const button = document.getElementsByClassName('buttons');
+const button = document.getElementById('instr');
 const height = 8;
 const width = 16;
 
@@ -59,9 +59,6 @@ function resizeCanvas() {
 	arr_y = tile * height
 	canvas.width = arr_x;
 	canvas.height = arr_y;
-	instructions.width = arr_x;
-	instructions.height = arr_y;
-
 	
 	draw();
 }
@@ -83,14 +80,15 @@ function draw () {
 	}
 }
 
-button.onclick = () => {
-	console.log('ok');	
-	if (instructions.zIndex === -1) {
-		instructions.zIndex = 5;
+instr.addEventListener('click', (e) => {
+	if(canvas.style.display === 'none') {
+		canvas.style.display = 'inline';
+		instructions.style.display = 'none';
 	} else {
-		instructions.zIndex = -1;
+		canvas.style.display = 'none';
+		instructions.style.display = 'inline';
 	}
-}
+});
 
 canvas.addEventListener('click', (e) => {
 
