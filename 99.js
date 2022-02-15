@@ -2,7 +2,7 @@
 
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
-const instructions = document.getElementsByClassName('instructions');
+const instructions = document.getElementById('instruction');
 const button = document.getElementById('instr');
 const height = 8;
 const width = 16;
