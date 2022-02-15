@@ -4,10 +4,9 @@ const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 const instructions = document.getElementById('instruction');
 const button = document.getElementById('instr');
+const url = '/hiscores.txt';
 const height = 8;
 const width = 16;
-
-console.log(instructions);
 
 let treat_color = 'purple';
 let body_color = 'black';
@@ -37,6 +36,13 @@ body_x = x();
 body_y = y();
 arr[body_x][body_y] = 1;
 placeTreat();
+
+let hiscores;
+fetch(url)
+   .then( r => r.text() )
+   .then( t => {
+		hiscores = t;
+   });
 
 initialize();
 
@@ -189,7 +195,11 @@ function placeTreat () {
 } 
 
 function end() {
-	alert('You lost!\nYour score was ' + score + '.');
+	if (score < 5) {
+		alert('You lost!\nYour score was ' + score + '.');
+	} else {
+		let initials = prompt('You lost!\nYour score was ' + score + '.\nYou got a new high score! Please input your initials');
+	}
 	arr = arr.map(a => a.map(() => 0))
 	score = 0;
 	destroyed_reds = 0;
