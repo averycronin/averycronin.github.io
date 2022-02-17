@@ -37,12 +37,13 @@ body_y = y();
 arr[body_x][body_y] = 1;
 placeTreat();
 
-let hiscores;
-fetch(url)
-   .then( r => r.text() )
-   .then( t => {
-		hiscores = t;
-   });
+var hiscores;
+
+var response = await fetch(url);
+var data = await response.text();
+hiscores = data;
+
+hiscores = hiscores.split(',');
 
 initialize();
 
@@ -96,7 +97,14 @@ instr.addEventListener('click', (e) => {
 	}
 });
 
-canvas.addEventListener('click', (e) => {
+// -------------------------------------------------------------------------------
+// TODO 
+// Add custom colors for the user, some kind of pallete and options to input their 
+// own colors for the game, and a default button that returns values back to their 
+// original values.
+// -------------------------------------------------------------------------------
+
+/*canvas.addEventListener('click', (e) => {
 
 	//TODO fix the offset from the page vs the canvas and you've got the color done 
 	//Also, might want to make helper functions for rgb to hex and vice versa
@@ -109,7 +117,7 @@ canvas.addEventListener('click', (e) => {
     var x = e.x;
     var y = e.y;
 	console.log(canvas.getContext('2d').getImageData(x-x_offset, y, 1, 1).data);
-});
+});*/
 
 document.addEventListener('keydown', event => {
 	const charList = 'adesw';
@@ -120,6 +128,7 @@ document.addEventListener('keydown', event => {
 	if (!(charList.includes(key)) && (key !== 'arrowup') && (key !== 'arrowdown') && (key !== 'arrowright') && (key !== 'arrowleft')) { return; }
 
 	if (key === 'arrowleft' || key === 'a') {
+		event.preventDefault();
 		if (body_x === 0) {
 			body_x = width-1;
 		} else {
@@ -133,6 +142,7 @@ document.addEventListener('keydown', event => {
 			body_y--;
 		}
 	} else if (key === 'arrowright' || key === 'd') {
+		event.preventDefault();
 		if (body_x === width-1) {
 			body_x = 0;
 		} else {
@@ -195,10 +205,12 @@ function placeTreat () {
 } 
 
 function end() {
-	if (score < 5) {
+	console.log("hiscores: + " + hiscores[13]);
+	if (score <= hiscores[13]) {
 		alert('You lost!\nYour score was ' + score + '.');
 	} else {
 		let initials = prompt('You lost!\nYour score was ' + score + '.\nYou got a new high score! Please input your initials');
+		newHiScore(intials);
 	}
 	arr = arr.map(a => a.map(() => 0))
 	score = 0;
@@ -207,6 +219,59 @@ function end() {
 	body_y = y();
 	placeTreat();
 	draw();
+}
+
+function newHiScore(initials) {
+	if (score > hiscores[10]) {
+		assignEnd(9);
+	} else {
+		assignEnd(initials, score, 12);
+		storeToFile();
+		return;
+	}
+	if (score > hiscores[7]) {
+		assignEnd(6);
+	} else {
+		assignEnd(initials, score, 9);
+		storeToFile();
+		return;
+	}
+	if (score > hiscores[4]) {
+		assignEnd(3);
+	} else {
+		assignEnd(initials, score, 6);
+		storeToFile();
+		return;
+	}
+	if (score > hiscores[1]) {
+		assignEnd(0);
+		assignEnd(initials, score, 0);
+	} else {
+		assignEnd(initials, score, 3);
+	}
+}
+
+//helper for newHiScore
+// initials and score are passed for info on the hiscore
+// s is the start index
+function assignEnd(initials, score, s) {
+	hiscores[s] = initials;
+	hiscores[s+1] = score;
+	hiscores[s+2] = Date.now();
+}
+
+//helper for newHiScore
+// s is the start index, pushes a hiscore down the array
+function assignEnd(s) {
+		hiscores[s+3] = hiscores[s];
+		hiscores[s+4] = hiscores[s+1];
+		hiscores[s+5] = hiscores[s+2];
+}
+
+//helper for newHiScore
+// stores hiscore back to 
+function storeToFile() {
+	return;
 }
 
 function x () {
