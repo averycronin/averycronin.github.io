@@ -80,15 +80,15 @@ function draw () {
 	}
 }
 
-instr.addEventListener('click', (e) => {
-	if(canvas.style.display === 'none') {
-		canvas.style.display = 'inline';
-		instructions.style.display = 'none';
-	} else {
-		canvas.style.display = 'none';
-		instructions.style.display = 'inline';
-	}
-});
+// instr.addEventListener('click', (e) => {
+// 	if(canvas.style.display === 'none') {
+// 		canvas.style.display = 'inline';
+// 		instructions.style.display = 'none';
+// 	} else {
+// 		canvas.style.display = 'none';
+// 		instructions.style.display = 'inline';
+// 	}
+// });
 
 canvas.addEventListener('click', (e) => {
 
