@@ -90,13 +90,13 @@ body {
 }
 
 #canv {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	-ms-transform: translate(-50%, -50%);
-	transform: translate(-50%, -50%);
-	overflow: auto;
-	display: inline;
+	margin-top: 2em;
+  margin-bottom: 1em;
+	position: relative;
+	left: -50%;
+/*	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);*/
+	display: block;
 }
 
 hr {
