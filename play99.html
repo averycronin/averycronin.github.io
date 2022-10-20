@@ -3,9 +3,9 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="A page for more information on Avery Cronin" />
+        <meta name="description" content="A game made with canvas and js" />
         <meta name="author" content="Avery Cronin" />
-        <title>About Me</title>
+        <title>Play 99</title>
         <link rel="icon" type="image/x-icon" href="assets/favicon.svg" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
@@ -50,8 +50,8 @@
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="page-heading">
-                            <h1>Meet Avery</h1>
-                            <span class="subheading">Get to know me a bit better.</span>
+                            <h1>Let's Play 99</h1>
+                            <span class="subheading">Make sure to read the rules if you don't know how to play!</span>
                         </div>
                     </div>
                 </div>
@@ -62,14 +62,16 @@
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
-                        <h3>DoD SMART Scholar</h3>
-                        <p>I was selected as a recipient of the DoD SMART Scholarship, a program aimed to recruit workers for government positions. 
-                            In exchange for working for a government facility after graduating, I receive funding for school, along with a stipend.</p>
-                        <h3>Brother of Theta Tau</h3>
-                        <p>Theta Tau is a professional engineering fraternity, which I rushed and pledged in Spring 2021. I have maintained an active brother status
-                             within the fraternity and enjoy the philanthropy, service, brotherhood and professional development aspects of the fraternity.</p>
-                        <h3>University of South Carolina Student</h3>
-                        <p>I am currently a Junior at the University of South Carolina pursuing a B.S. in Computer Science.</p>
+                      <div class="post-preview">
+                        <a href="#canvas">
+                          <h2 class="post-subtitle">Click here to center the game onto the screen</h2>
+                        </a>
+                      </div>
+                      <div class='canvas'>
+                        <canvas id='canvas'></canvas>
+                      </div>
+                      <script src="js/99.js" type='module'></script>
+                        
                     </div>
                 </div>
             </div>
