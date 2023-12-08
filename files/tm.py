@@ -104,6 +104,8 @@ rules = []
 
 # iterate through rulestring and make rules for each line
 for counter in range(len(rulestring)):
+    if rulestring[counter] == "":
+        continue
     rules.append(Rules(rulestring[counter].split()))
     
 # Helper Function for output: hedge
@@ -143,7 +145,11 @@ def ruling(rules, state, val):
 while 1:
     # Fresh Turing Machine and Tape for each input
     t = TMachine()
-    w = input()
+    try:
+        w = input()
+    except:
+        EOFError
+        break
     tape = Tape(w)
     while 1:
         state = t.get_state()
