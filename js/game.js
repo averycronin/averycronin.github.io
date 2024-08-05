@@ -147,7 +147,6 @@ document.addEventListener('keydown', event => {
 	}
 	premove(x,y);
 	movePlayer();
-    document.getElementById("score").textContent="Current Score: " + score + ". Times you can run into a red box and not die: " + (Math.floor(score/per_break-destroyed_reds));
 });
 
 function premove(x, y) {
@@ -189,6 +188,7 @@ function placeTreat () {
 	arr[treat_x][treat_y] = 2;
 	ctx.fillStyle = treat_color;
 	ctx.fillRect(treat_x*tile,treat_y*tile,tile,tile);
+    document.getElementById("score").textContent="Current Score: " + score + ". Times you can run into a red box and not die: " + (Math.floor(score/per_break-destroyed_reds));
 } 
 
 function end() {
