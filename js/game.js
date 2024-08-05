@@ -49,7 +49,7 @@ function initialize() {
 }
 
 function resizeCanvas() {
-    let fixedHeight = window.innerHeight * 0.75;
+    let fixedHeight = window.innerHeight * 0.60;
     let fixedWidth = window.innerWidth * 0.95;
 
 	if (fixedHeight * 2 > fixedWidth) {
