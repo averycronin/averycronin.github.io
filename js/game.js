@@ -48,10 +48,10 @@ function initialize() {
 	per_break = 8;
 }
 
-let fixedHeight = window.innerHeight * 0.8;
-let fixedWidth = window.innerWidth * 0.95;
-
 function resizeCanvas() {
+    let fixedHeight = window.innerHeight * 0.8;
+    let fixedWidth = window.innerWidth * 0.95;
+
 	if (fixedHeight * 2 > fixedWidth) {
  		tile = Math.floor(fixedWidth / width);
 	} else {
