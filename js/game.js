@@ -48,11 +48,14 @@ function initialize() {
 	per_break = 8;
 }
 
+let fixedHeight = window.innerHeight * 0.8;
+let fixedWidth = window.innerWidth * 0.95;
+
 function resizeCanvas() {
-	if (window.innerHeight * 2 > window.innerWidth) {
- 		tile = Math.floor(window.innerWidth / width);
+	if (fixedHeight * 2 > fixedWidth) {
+ 		tile = Math.floor(fixedWidth / width);
 	} else {
-		tile = Math.floor(window.innerHeight / height);
+		tile = Math.floor(fixedHeight / height);
 	}
 
 	arr_x = tile * width
@@ -113,6 +116,7 @@ document.addEventListener('keydown', event => {
 	const key = event.key.toLowerCase();
 	if (!(charList.includes(key)) && (key !== 'arrowup') && (key !== 'arrowdown') && (key !== 'arrowright') && (key !== 'arrowleft')) { return; }
 
+    event.preventDefault();
 	if (key === 'arrowleft' || key === 'a') {
 		if (body_x === 0) {
 			body_x = width-1;
@@ -120,7 +124,6 @@ document.addEventListener('keydown', event => {
 			body_x--;
 		}
 	} else if (key === 'arrowup' || key === 'w') {
-		event.preventDefault();
 		if (body_y === 0) {
 			body_y = height-1;
 		} else {
@@ -133,7 +136,6 @@ document.addEventListener('keydown', event => {
 			body_x++;
 		}
 	} else if (key === 'arrowdown' || key === 's') {
-		event.preventDefault();
 		if (body_y === height-1) {
 			body_y = 0;
 		} else {
