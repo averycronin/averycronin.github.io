@@ -4,9 +4,9 @@
 
 	<head>
 		<link rel='icon' href='assets/favicon.svg' type='image/x-icon'/>
-		<link rel="stylesheet" href="css/index.css">
+		<link rel="stylesheet" href="css/game.css">
 		<meta charset="UTF-8"/>
-		<title> Avery </title>
+		<title>Avery Cronin</title>
 
 		<!-- Global site tag (gtag.js) - Google Analytics -->
 		<script async src="https://www.googletagmanager.com/gtag/js?id=G-9528VJZP27"></script>
@@ -23,20 +23,30 @@
 	<body>
 		<div class = 'navbar'>
 			<ul>
-			<li><h10>Avery Cronin</h10></li>
+			<li><div class='name'>Avery Cronin</div></li>
     		<li><a href='/'>Home</a></li>
 			<li><a href='/about'>About</a></li>
 			<li><a href='/projects'>Projects</a></li>
-    		<li><a href='/contact'>Contact</a></li>
 			</ul>
   		</div>
 		<div class="topText">
-			<h1> Contact information </h1><br><br>
-			<p> Reach out to me via my email, averywcronin@gmail.com</p>
+			<h1>Game</h1><br><br>
+			<p>WASD or arrow keys to move. Get the purple and avoid the red.</p>
 		</div>
-		<div class="topImage">
-			<img src="assets/img/photo.jpg">
+
+		<div class='canvas' id='canv'>
+			<canvas id='canvas'></canvas>
 		</div>
+
+		<script src="js/game.js" type='module'></script>
+
+		<figure>
+			<a href='https://github.com/averycronin'><img src="assets/img/github.svg"/></a>
+			<a href='https://youtube.com/@averycronin'><img src="assets/img/yt.svg"/></a>
+			<a href='https://linkedin.com/in/averycronin'><img src="assets/img/linkedin.svg"/></a>
+		</figure>
+
+		<h4>© 2024 Avery Cronin. All Rights Reserved.</h4>
 	</body>
 
 </html>
