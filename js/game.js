@@ -32,8 +32,6 @@ ctx.fillRect(0, 0, arr_x, arr_y);
 
 let body_x, body_y, treat_x, treat_y;
 let score, destroyed_reds, per_break;
-score = 0;
-destroyed_reds = 0;
 
 body_x = x();
 body_y = y();
@@ -157,6 +155,7 @@ function premove(x, y) {
 		arr[x][y] = -1;
 		ctx.fillStyle = danger_color;
 		score++;
+        document.getElementById("score").textContent="Current Score: " + score + ". Times you can run into a red box and not die: " + (Math.floor(score/per_break-destroyed_reds));
 	} else {
 		arr[x][y] = 0;
 	}
@@ -190,7 +189,6 @@ function placeTreat () {
 	arr[treat_x][treat_y] = 2;
 	ctx.fillStyle = treat_color;
 	ctx.fillRect(treat_x*tile,treat_y*tile,tile,tile);
-    document.getElementById("score").textContent="Current Score: " + score + ". Times you can run into a red box and not die: " + (Math.floor(score/per_break-destroyed_reds));
 } 
 
 function end() {
