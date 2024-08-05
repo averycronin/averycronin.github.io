@@ -14,12 +14,10 @@ img {
 	
 }
 .topText {
-	margin-top: 30px;
+	margin-top: 1.5em;
 	border: 0;
-	overflow: hidden;
 	text-align: center;
 	padding-top: 2em;
-	flex-wrap: wrap;
 }
 p {
 	font-size: 14pt;
@@ -51,12 +49,11 @@ img {
 	width: 5em;
 }
 
-.socials {
-	margin-left: 40%;
-	margin-right: 40%;
-	width: 20%;
-	position: fixed;
+figure {
+	position: absolute;
+	left: 50%;
 	bottom: 2em;
+	transform: translate(-50%);
 }
 
 .navbar a:hover {
