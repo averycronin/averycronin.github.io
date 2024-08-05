@@ -32,6 +32,8 @@ ctx.fillRect(0, 0, arr_x, arr_y);
 
 let body_x, body_y, treat_x, treat_y;
 let score, destroyed_reds, per_break;
+score = 0;
+destroyed_reds = 0;
 
 body_x = x();
 body_y = y();
