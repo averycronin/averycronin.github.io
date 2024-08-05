@@ -12,7 +12,7 @@ const width = 16;
 let treat_color = 'purple';
 let body_color = 'black';
 let danger_color = 'red';
-let background_color = '#eee';
+let background_color = '#ddd';
 
 let arr = Array.from({length: width}, () => Array.from({length: height}, () => 0));
 
