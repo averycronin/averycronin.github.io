@@ -1,6 +1,6 @@
 'use strict';
 
-input = [];
+let input = [];
 
 document.addEventListener('keydown', event => {
 	const charList = 'ab';
