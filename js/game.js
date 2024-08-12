@@ -155,7 +155,6 @@ function premove(x, y) {
 		arr[x][y] = -1;
 		ctx.fillStyle = danger_color;
 		score++;
-        document.getElementById("score").textContent="Current Score: " + score + ". Times you can run into a red box and not die: " + (Math.floor(score/per_break-destroyed_reds));
 	} else {
 		arr[x][y] = 0;
 	}
@@ -170,6 +169,7 @@ function movePlayer() {
 		red();
 	} else if (arr[body_x][body_y] === 3) {
 		placeTreat();
+		document.getElementById("score").textContent="Current Score: " + (score+1) + ". Times you can run into a red box and not die: " + (Math.floor(score/per_break-destroyed_reds));
 	}
 }
 
